@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <script>
-      var apiRoot = 'http://52.48.1.222/api/visualise-fingerprint.php';
+      var apiRoot = 'http://localhost:8080';
     </script>
     
 
@@ -158,7 +158,7 @@
         $('#resultDone').click(resetFingerprintEntry);
 
         $.ajax( {
-          url : 'http://52.48.1.222/api/visualise-fingerprint.php',
+          url : 'http://localhost:8080',
           }).done(function(data) {
             initEncodingMethods(data);
           });
