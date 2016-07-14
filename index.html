@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <script>
-      var apiRoot = 'http://localhost:8080';
+      var apiRoot = 'https://authenticon-api-qa.benetech.org';
     </script>
     
 
@@ -158,7 +158,7 @@
         $('#resultDone').click(resetFingerprintEntry);
 
         $.ajax( {
-          url : 'http://localhost:8080',
+          url : 'https://authenticon-api-qa.benetech.org',
           }).done(function(data) {
             initEncodingMethods(data);
           });
