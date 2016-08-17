@@ -128,7 +128,7 @@
 
       if ($('#visualise-result').is(":visible"))
         $('#visualise-result').fadeOut( { complete : function() {
-            visualiseFingerprint(document.forms[0].fingerprint.value);
+            visualiseFingerprint(document.forms[0].fingerprint.value.replace(/([^a-f0-9]+)/gi, ''));
         }});
     }
 
