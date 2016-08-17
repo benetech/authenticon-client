@@ -33,7 +33,7 @@
   </head>
   <body>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -70,13 +70,13 @@
 
     <div class="row">
       <div class="col-md-12">
-        <p class="lead">Enter your fingerprint below:</p>
+        <p class="lead">Enter the fingerprint below:</p>
 
         <form id="fingerprintForm">
           <div class="form-group">
-            <input type="text" class="form-control" name="fingerprint" placeholder="Fingerprint (40 digits)"></input>
+            <input type="text" class="form-control" name="fingerprint" placeholder="Fingerprint (Martus or PGP format)"></input>
           </div>
-          <input type="submit" value="Go" id="goBtn" class="btn btn-primary btn-lg disabled"></input>
+          <input type="submit" value="Submit" id="goBtn" class="btn btn-primary btn-lg disabled"></input>
         </form>
     </div>
   </div>
@@ -133,15 +133,23 @@
     }
 
     $(document).ready(function () {
-        $('#fingerprintForm').validate({
+		$.validator.addMethod(
+		"regex",
+		function(value,element,regexp){
+		var re = new RegExp(regexp);
+		return this.optional(element) || re.test(value);
+		},
+		"Not a valid fingerprint (40 hexadecimal characters separated by dots, dashes, or spaces)"
+	);	
+	
+       $('#fingerprintForm').validate({
             rules: {
                 fingerprint: {
                     required: true,
-                    digits: true,
-                    minlength: 40,
-                    maxlength: 40
+//					regex: "^([0-9a-f]{4}[\\s]?[\.\-]?[\\s]?){10}$|^([0-9a-f]{8}[\\s]?[\.\-]?[\\s]?){5}$",
+					regex: "^([0-9a-f][\\s]*[\.\-]*){40}$",
                 }          
-            },
+           },
             submitHandler: function(form) {
               visualiseFingerprint(form.fingerprint.value);
             }          
