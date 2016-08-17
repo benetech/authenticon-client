@@ -151,7 +151,7 @@
                 }          
            },
             submitHandler: function(form) {
-              visualiseFingerprint(form.fingerprint.value);
+              visualiseFingerprint(form.fingerprint.value.replace(/([^a-f0-9]+)/gi, ''));
             }          
         });
 
