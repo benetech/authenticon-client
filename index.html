@@ -1,198 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <script>
-      var apiRoot = 'https://authenticon-api-qa.benetech.org';
-    </script>
-    
+<head>
 
-    <title>Martus Authenticon prototype</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Authenticon Prototype">
+	<meta name="author" content="Benetech Labs">
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<script>
+	  var apiRoot = 'https://authenticon-api-qa.benetech.org';
+	</script>
+	
+	<title>Authenticon Prototype - Benetech</title>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
- 
-  <!-- Text encodings use <pre>; this style tweak makes <pre> text larger -->
-   <style>
-      pre.result {
-        font-size: 160%;        
-      }
-    </style>
+	<!-- Bootstrap Core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  </head>
-  <body>
+	<!-- Theme CSS -->
+	<link href="css/freelancer.min.css" rel="stylesheet">
 
-<nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-     <a class="navbar-brand" id="current-encoding-name" href="#"></a>      
-    </div>
+	<!-- Custom Fonts -->
+	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change <span class="caret"></span></a>
-          <ul id="methods-dropdown" class="dropdown-menu">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+</head>
 
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+<body id="page-top" class="index">
 
-<div class="container">
+	<!-- Navigation -->
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<a class="navbar-brand" href="#page-top">Authenticon</a>
+				<a class="navbar-brand" id="navsmall"  href="#page-top">Prototype</a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+				</button>
+			</div>
 
-    <div class="page-header">
-      <h1>Martus Authenticon <small>prototype</small></h1>
-    </div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden">
+						<a href="#page-top"></a>
+					</li>
+					<li class="page-scroll">
+						<a href="#viz">Visualize</a>
+					</li>
+					<li class="page-scroll">
+						<a href="#about">About</a>
+					</li>
+					<li class="page-scroll">
+						<a href="#foot">Contact</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	
+<!-- Header -->
+	
+	<header>
+		<section id="viz"  style="padding-bottom:50px;">
+			<div class="container">
+				<span id="fingerprint-entry" sytle="padding-top:120px;">&nbsp;</span>
+					<div class="row" style="padding-bottom:30px">
+						<div class="col-lg-12">
+							<div class="intro-text">
+								<h2>Authenticon</h2>
+								<hr  class="star-light">
+							</div>
+						</div>	
+					</div>	
+					<div class="row" style="padding-bottom:30px">
+						<div class="col-lg-12 text-center">
+							<p class="lead">Please enter the encryption fingerprint below</p>
+						</div>
+					</div>	
+				
+				
+				
+							
+				<div class="row">
+					<div class="col-lg-12">
+						<form id="fingerprintForm" autocomplete="off">
+							<div class="form-group">
+								<div class="col-md-7">
+									<input type="text" class="form-control input-lg" name="fingerprint" placeholder="Fingerprint (Martus or PGP format)"></input>
+								</div>
+								
+								<div class="col-md-5">
+									
+									<div class="btn-group" role="group" aria-label="Choose Representation">
+										<button id="current-encoding-name" type="button" class="btn btn-primary btn-lg">Choose Method</button>
+										<button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<span class="caret"></span>
+											<span class="sr-only">Toggle Method Dropdown</span>
+										</button>
+										<ul id="methods-dropdown" class="dropdown-menu">
+										</ul>
+									</div>
+									
+									
+								</div>		
+								
+							</div>	
+						</form>
+					</div>	
+					
+					
 
-    <div id="fingerprint-entry">
 
-    <div class="row">
-      <div class="col-md-12">
-        <p class="lead">Enter the fingerprint below:</p>
+				</div>
+				
+				
+				
+				<div class="row" style="padding-top:75px;">
+					<div class="img-responsive" id="visualise-result" style="display:none;">
+						<button id="resultDone" class="btn btn-lg btn-success">Done</button>
+					</div>
+				</div>
+			
+			
+			
+			</div>
+		</section>
+	</header>
+	
 
-        <form id="fingerprintForm">
-          <div class="form-group">
-            <input type="text" class="form-control" name="fingerprint" placeholder="Fingerprint (Martus or PGP format)"></input>
-          </div>
-          <input type="submit" value="Submit" id="goBtn" class="btn btn-primary btn-lg disabled"></input>
-        </form>
-    </div>
-  </div>
+	<!-- About Section -->
+	<section class="success" id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2>About</h2>
+					<hr class="star-primary">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-justify">
+					<p>AuthentIcon is an open source prototype designed to improve the user experience of verifying a contact's cryptographic identity. The current standard implemented by widely-used encryption software, like <a style="text-decoration: underline; color:white" href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP </a>and <a style="text-decoration: underline; color:white" href="https://en.wikipedia.org/wiki/Off-the-Record_Messaging">OTR</a>, requires users to compare long alphanumeric strings either visually or by reading aloud character-by-character. It is tedious, presents a significant barrier to verification, and often dissuades users from verifying their contacts at all, presenting serious security risks.</p>
+				</div>
+				<div class="col-lg-12 text-justify" style="padding-top:20px;">				
+					<p>This prototype hopes to begin exploring various methods that can be used to compare and authenticate cryptographic fingerprints.</p>
+				</div>
+			</div>
 
-  </div> <!-- fingerprint-entry -->
+			<div class="row">
+				<div class="col-lg-12 text-center" style="padding-top: 30px;">
+					<h2>Current Methods</h2>
+				</div>
+			</div>
+			<div class="row" style="padding-top: 10px;">
+				<div class="col-md-4 text-justify">
+					<h3 class="text-center">Icons (Permanent)</h3>
+					<p style="font-size: 1.25em">Encodes fingerprints as a set of icons. Icons can either be colored blue or orange, but contain unique concepts within a color. These icons should be described to the recipient using the color and a description in the users' preferred language. Each unique fingerprint will always encode to the same set of icons.</p>
+				</div>
+				<div class="col-md-4 text-justify">
+					<h3 class="text-center">3 Icons (Temporary)</h3>
+					<p style="font-size: 1.2em">Encodes fingerprints as a set of 3 icons. The icon set is associated with the fingerprint for a period of 24 hours. This method is useful for a real-time (or near real-time) verification, but cannot be used as a permanent representation of the fingerprint. After 24 hours, the same set of icons could be represent a different fingerprint.</p>
+				</div>
+				<div class="col-md-4 text-justify">
+					<h3 class="text-center">Audio Method</h3>
+					<p style="font-size: 1.25em">Encodes fingerprint as a permanent series of sounds. The contents and characteristics of the fingerprint are used in frequency and duration configuration. The resulting pattern can be useful as a non-visual representation of the key.</p>
+				</div>
+		</div>
+	</section>
 
-  <div class="well" id="visualise-result" style="display:none">
-      <button id="resultDone" class="btn btn-lg btn-success">Done</button>
-  </div> <!-- visualise-result -->
+	<!-- Footer -->
+	<footer class="text-center" id="foot">
+		<div class="footer-above">
+			<div class="container">
+				<div class="row">
+					<div class="footer-col col-md-4">
+						<h3>An Initiative of</h3>
+						<a href="https://benetech.org"><img class="img-centered" src="img/labslogo.png" alt="Benetech Logo"></a>
+						<p>Prototype developed by <br><a href="https://www.benetech.org/our-programs/benetech-labs/">Benetech Labs</a></p>
+						
+					</div>
+					<div class="footer-col col-md-4">
+						<h3>Around the Web</h3>
+						<ul class="list-inline">
+							<li>
+								<a href="https://www.facebook.com/pages/Benetech/36199212252" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+							</li>
+							<li>
+								<a href="https://twitter.com/benetech" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/benetech" class="btn-social btn-outline"><i class="fa fa-fw fa-youtube"></i></a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/company/benetech" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-col col-md-4">
+						<h3>Supported By</h3>
+						<img class="img-centered" src="img/knight-logo-white.png" alt="Knight Logo"></a>
+						<p>Authenticon is a project funded by the  <a href="http://www.knightfoundation.org/funding-initiatives/knight-prototype-fund/">Knight Prototype Fund</a></p>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-below">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						Copyright &copy; Benetech <script>document.write(new Date().getFullYear())</script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 
-</div>
+	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+	<div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+		<a class="btn btn-primary" href="#page-top">
+			<i class="fa fa-chevron-up"></i>
+		</a>
+	</div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+	<!-- jQuery -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/jquery/jquery.validate.min.js"></script>
 
-    <script>
-    var encodingMethods;
-    var currentEncodingMethod;
+	<!-- Bootstrap Core JavaScript -->
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    function initEncodingMethods(data) {
-      encodingMethods = data;
+	<!-- Plugin JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="vendor/jsfx/jsfx.js"></script>
+	<!-- Theme JavaScript -->
+	<script src="js/freelancer.min.js"></script>
+	
+	<script>
+		var modules = [
+			jsfx.Module.Frequency,
+			jsfx.Module.Vibrato,
+			jsfx.Module.Guitar,
+			jsfx.Module.Volume
+		];
 
-      encodingMethods.forEach( function(method) {
-        $('#methods-dropdown').append('<li class="methods-dropdown-item"><a href="#">' + method.name + '</a></li>');
-      });
+		var base = function(){
+			return {
+				Frequency: { Slide: (Math.random() - 0.5)/5 },
+				Volume: { Master: 1, Attack: 0, Punch: 1, Release: 1, Decay: 3 }
+			};
+		};
 
-      $('.methods-dropdown-item').click( function(element) {
-        setCurrentEncodingMethodByName(element.delegateTarget.textContent);
-      });
+		var live = jsfx.Live({}, modules);
 
-      setCurrentEncodingMethodByName(encodingMethods[0].name);
-    }
+		function MergeParams(base, override){
+			if(typeof base === 'function'){
+				base = base();
+			} else {
+				base = JSON.parse(JSON.stringify(base));
+			}
 
-    function setCurrentEncodingMethodByName(name) {
-      encodingMethods.forEach( function(method) {
-        if (method.name == name) {
-          setCurrentEncodingMethod(method);
-          return;
-        }
-      })
-    }
+			if(typeof override === 'function'){
+				override = override();
+			}
 
-    function setCurrentEncodingMethod(method) {
-      currentEncodingMethod = method;
-      $('#current-encoding-name').empty().append("Encoding method: " + method.name);
+			for(var name in override){
+				if(typeof base[name] === 'undefined'){
+					base[name] = {};
+				}
+				for(var param in override[name]){
+					base[name][param] = override[name][param];
+				}
+			}
 
-      if ($('#visualise-result').is(":visible"))
-        $('#visualise-result').fadeOut( { complete : function() {
-            visualiseFingerprint(document.forms[0].fingerprint.value.replace(/([^a-f0-9]+)/gi, ''));
-        }});
-    }
+			return base;
+		}
 
-    $(document).ready(function () {
+
+		function play(fingerprint,mult){
+			var jump = 3;
+			var scale = "1234567890ABCDEF";
+			(function theLoop (i) {
+			setTimeout(function () {
+			var freq = (mult) * Math.pow(2, scale.indexOf(fingerprint[i-1])/16);
+			var params = MergeParams(base, { "Frequency": {"Start": freq},Vibrato: {Depth: scale.indexOf(fingerprint[i-2]) / 16,
+				Frequency: scale.indexOf(fingerprint[i-3]) * 10 + 5}});
+				live._play(params);
+			if (--i) {          // If i > 0, keep going
+			  theLoop(i);       // Call the loop again, and pass it the current value of i
+			}
+			}, 100);
+			})(fingerprint.length/jump);
+		}
+
+	</script>
+	
+	<script>
+	var encodingMethods;
+	var currentEncodingMethod;
+
+	function initEncodingMethods(data) {
+	  encodingMethods = data;
+
+	  encodingMethods.forEach( function(method) {
+		$('#methods-dropdown').append('<li class="methods-dropdown-item"><a href="#">' + method.name + '</a></li>');
+	  });
+
+	  $('.methods-dropdown-item').click( function(element) {
+		setCurrentEncodingMethodByName(element.delegateTarget.textContent);
+	  });
+
+//	  setCurrentEncodingMethodByName(encodingMethods[0].name);
+	}
+
+	function setCurrentEncodingMethodByName(name) {
+	  encodingMethods.forEach( function(method) {
+		if (method.name == name) {
+		  setCurrentEncodingMethod(method);
+		  return;
+		}
+	  })
+	}
+
+	function setCurrentEncodingMethod(method) {
+	  currentEncodingMethod = method;
+	  $('#current-encoding-name').empty().append("Method: " + method.name);
+
+		if ($('#visualise-result').is(":visible"))
+			{
+			$('#visualise-result').fadeOut( { complete : function() {
+				visualiseFingerprint(document.forms[0].fingerprint.value.replace(/([^a-f0-9]+)/gi, ''));
+			}});
+			}
+		else if ($('#fingerprintForm').valid()) {
+			$('#visualise-result').fadeOut( { complete : function() {
+				visualiseFingerprint(document.forms[0].fingerprint.value.replace(/([^a-f0-9]+)/gi, ''));
+			}});
+		}
+	}
+
+	$(document).ready(function () {
+		
 		$.validator.addMethod(
 		"regex",
 		function(value,element,regexp){
 		var re = new RegExp(regexp);
 		return this.optional(element) || re.test(value);
 		},
-		"Not a valid fingerprint (40 hexadecimal characters separated by dots, dashes, or spaces)"
-	);	
+		"Not a valid fingerprint (Martus, MD5, SHA-1, or SHA-256)"
+	);
 	
-       $('#fingerprintForm').validate({
-            rules: {
-                fingerprint: {
-                    required: true,
+
+		$.validator.addMethod(
+		"goodMethod",
+		function(value,element){
+		if(typeof currentEncodingMethod !==  'undefined') {
+			return true;
+		} else {
+			return false;
+		}
+		},
+		"Choose a Method from the dropdown"
+	);
+	
+	   $('#fingerprintForm').validate({
+			success: function(label) {
+				if(document.forms[0].fingerprint.value.replace(/([^a-f0-9]+)/gi, '').length == 32) {
+					label.addClass("valid").text("MD5 fingerprint detected");
+				}
+				else if(document.forms[0].fingerprint.value.replace(/([^a-f0-9]+)/gi, '').length == 40) {
+					label.addClass("valid").text("SHA-1/Martus fingerprint detected");
+				}
+				else if(document.forms[0].fingerprint.value.replace(/([^a-f0-9]+)/gi, '').length == 64) {
+					label.addClass("valid").text("SHA-256 fingerprint detected");
+				}
+			},
+			invalidHandler: function() {
+				resetFingerprintEntry();
+			},
+			rules: {
+				fingerprint: {
+					required: true,
 //					regex: "^([0-9a-f]{4}[\\s]?[\.\-]?[\\s]?){10}$|^([0-9a-f]{8}[\\s]?[\.\-]?[\\s]?){5}$",
-					regex: "^([0-9a-f][\\s]*[\.\-]*){40}$",
-                }          
-           },
-            submitHandler: function(form) {
-              visualiseFingerprint(form.fingerprint.value.replace(/([^a-f0-9]+)/gi, ''));
-            }          
-        });
+					regex: "^([0-9a-fA-F][\\s]*[\:\.\-]*){40}$|^([0-9a-fA-F][\\s]*[\:\.\-]*){32}$|^([0-9a-fA-F][\\s]*[\:\.\-]*){64}$",
+					goodMethod: true,
+				},		
+		   },
+			submitHandler: function(form) {
+			  $('#visualise-result').fadeOut( { complete : function() {
+				visualiseFingerprint(document.forms[0].fingerprint.value.replace(/([^a-f0-9]+)/gi, ''));
+			}});
+			}          
+		});
+		
+		
+		$('#fingerprintForm input').on('keyup blur', function () {
+			if ($('#fingerprintForm').valid()) {
+				$('#visualise-result').fadeOut( { complete : function() {
+				visualiseFingerprint(document.forms[0].fingerprint.value.replace(/([^a-f0-9]+)/gi, ''));
+			
+			}});
+			}else {
+				resetFingerprintEntry();
+			}
+		});
 
-        $('#fingerprintForm input').on('keyup blur', function () {
-            if ($('#fingerprintForm').valid()) {
-                $('#goBtn').removeClass('disabled');
-            } else {
-                $('#goBtn').addClass('disabled');
-            }
-        });
+		$('#resultDone').click(resetFingerprintEntry);
 
-        $('#resultDone').click(resetFingerprintEntry);
+		$.ajax( {
+		  url : apiRoot,
+		  }).done(function(data) {
+			initEncodingMethods(data);
+		  });
+	}); 
 
-        $.ajax( {
-          url : 'https://authenticon-api-qa.benetech.org',
-          }).done(function(data) {
-            initEncodingMethods(data);
-          });
-    });
+	function visualiseFingerprint(fingerprint) {
+	  $('#visualise-result').empty();
+	  var apiUrl = apiRoot + '?method=' + encodeURIComponent(currentEncodingMethod.id) + '&fingerprint=' + fingerprint;
+	  if (currentEncodingMethod.type == 'text') {
+		$('#visualise-result').prepend($('<pre>', {class: 'result', id: 'text-result'}));
+		$.ajax(apiUrl).done(function(data) { $('#text-result').prepend(data)});
+	  } else if(currentEncodingMethod.type == 'audio'){
+			$.ajax(apiUrl).done(function(data) { $('#visualise-result').html(data)});
+	  } else {
+		$('#visualise-result').prepend($('<img>',{class: 'img-responsive', src:''+apiUrl}));
+	  }
+	  $('#fingerprint-entry').fadeOut( { complete: function() {
+		$('#visualise-result').fadeIn();        
+	  }});
+	}
 
-    function visualiseFingerprint(fingerprint) {
-      $('.result').remove();
-      var apiUrl = apiRoot + '?method=' + encodeURIComponent(currentEncodingMethod.id) + '&fingerprint=' + fingerprint;
-      if (currentEncodingMethod.type == 'text') {
-        $('#visualise-result').prepend($('<pre>', {class: 'result', id: 'text-result'}));
-        $.ajax(apiUrl).done(function(data) { $('#text-result').append(data)});
-      } else {
-        $('#visualise-result').prepend($('<img>',{class: 'result', style: 'width:100%', src:''+apiUrl}));
-      }
-      $('#visualise-result').prepend('<p class="small result">' + fingerprint + '</p>');
-      $('#fingerprint-entry').fadeOut( { complete: function() {
-        $('#visualise-result').fadeIn();        
-      }});
-    }
+	function resetFingerprintEntry() {
+	  $('#visualise-result').fadeOut( { complete: function() {
+		$('#fingerprint-entry').fadeIn();
+	  }});
+	}
 
-    function resetFingerprintEntry() {
-      $('#visualise-result').fadeOut( { complete: function() {
-        $('#fingerprint-entry').fadeIn();
-      }});
-    }
+	</script>
 
-    </script>
-  </body>
+</body>
+
 </html>
